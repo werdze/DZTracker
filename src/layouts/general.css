@@ -1,0 +1,124 @@
+:root {
+    --header-color: #383838;
+}
+
+.alignRight{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.uploadLabel {
+    font-size: 12pt;
+}
+
+.logoAndHeaderText{
+    margin: 0 auto;
+    max-width: 960px;
+    padding: 1.45rem 1.0875rem;
+}
+
+.headerBackground{
+    background: var(--header-color, blue);
+    margin-bottom: 1.45rem;
+}
+
+.headerTitle{
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+.headerDDButton{
+    background-color: var(--header-color, blue);
+    border: var(--header-color);
+}
+
+.dDOption{
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 1px;
+    line-height: 1.6;
+    font-weight: bold;
+    font-size: 18pt;
+}
+
+.dd-menu-items{
+    width: 215px;
+    max-width: 400px;
+}
+
+.addPadding{
+    padding: 7px;
+    background-color: whitesmoke;
+}
+
+.logoutTypeButtons{
+    margin-left: 20px;
+    border-radius: 3px;
+    background-color: whitesmoke;
+    color: black;
+    border: 1px solid gray;
+    /*border-color: var(--header-color, blue);*/
+    -webkit-transition-duration: 0.1s; /* Safari */
+    transition-duration: 0.1s;
+    font-size: 12pt;
+}
+
+.logoutTypeButtons:hover {
+    background-color: #dedede;
+    color: black;
+}
+
+.centered{
+    text-align: center;
+}
+
+.left{
+    text-align: left;
+}
+
+/*input[type="text"] {*/
+    /*display: block;*/
+    /*margin : 0 auto;*/
+/*}*/
+
+/*.bs-table{*/
+    /*.react-bs-table-bordered{*/
+        /*.react-bs-container-header{*/
+            /*font-size: 13px; !* table header font size*!			}*/
+        /*.react-bs-container-body{*/
+            /*font-size: 11px; !* table rows font size*!*/
+        /*}*/
+    /*}*/
+/*}*/
+
+.bs-table.react-bs-table-bordered.react-bs-container-header {
+    font-size: 25px; /* table header font size*/
+}
+
+.bs-table.react-bs-table-bordered.react-bs-container-body {
+    font-size: 25px; /* table rows font size*/
+}
+
+html {
+    font-size: 20px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+}
+
+.btn:focus {
+    outline: none !important;
+    outline-offset: 0;
+}
+
+Button {
+    outline: 0;
+}
+
+.searchBox{
+    border-radius: 3px;
+    border: 1px solid gray;
+    font-size: 11pt;
+    color: #404040;
+    line-height: 175%;
+}
