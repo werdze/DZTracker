@@ -9,18 +9,17 @@ from flask_marshmallow import Marshmallow
 from flask_cors import CORS
 
 from src import config
+# import config
 
 from werkzeug.datastructures import FileStorage
 
 import boto3
 
-# import '../assets/testPhotos/brooklyn_bel_air_sour.jpg' as brooklyn_photo
-
-
 # default Flask port is 5000
 
 app = Flask(__name__)
 CORS(app)
+# cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = config.awsConfigInfo
 db = SQLAlchemy(app)
@@ -278,4 +277,4 @@ def upload_photo_and_insert_in_database(name):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=80, debug=True)

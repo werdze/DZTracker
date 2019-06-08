@@ -1,9 +1,9 @@
 import React from 'react'
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import Layout from '../components/layout'
-import {logoutButton, getSingleRequest, parseNameFromURIString} from "../utils";
+import {logoutButton, getSingleRequest, parseNameFromURIString, baseFlaskUrl} from "../utils";
 
-import { FilePond, File, registerPlugin } from 'react-filepond';
+import { FilePond, registerPlugin } from 'react-filepond';
 import 'filepond/dist/filepond.min.css';
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css';
@@ -67,7 +67,7 @@ class editEntry extends React.Component {
      * Posts the data to the database (adds a new row in the table)
      */
     putRequest(){
-        let url = 'http://127.0.0.1:5000/editAlcohol/' + this.state.id
+        let url = baseFlaskUrl + '/editAlcohol/' + this.state.id
         fetch(url, {
             method: "PUT",
             headers: {'Content-Type':'application/json'},
@@ -85,15 +85,16 @@ class editEntry extends React.Component {
                 abv: this.state.abv,
             }),
             // mode:"no-cors",
-        })
-        window.location.replace('/tracker')
+        }).then(() => window.location.replace('/tracker'))
+        // window.location.replace('/tracker')
     }
 
     /**
      * Calls the DELETE API to delete this entry from the database
      */
     deleteEntry() {
-        let url = 'http://127.0.0.1:5000/deleteAlcohol/' + this.state.id
+        let url = baseFlaskUrl + '/deleteAlcohol/' + this.state.id
+        console.log(url)
         fetch(url, {
             method: "DELETE",
             headers: {'Content-Type':'application/json'},
@@ -111,8 +112,11 @@ class editEntry extends React.Component {
                 abv: this.state.abv,
             }),
             // mode:"no-cors",
-        })
-        window.location.replace('/tracker')
+        }).then(() => window.location.replace('/tracker'))
+
+        // window.location.replace('/tracker')
+        // window.navigate()
+        // window.location.href = 'http://localhost:8000/tracker';
     }
 
     /**
@@ -132,11 +136,12 @@ class editEntry extends React.Component {
     }
 
     /**
-     * Encrypts the password entered and sends login data to localStorage
+     * ...
      */
     onSubmit = event => {
-        this.putRequest()
+        this.putRequest();
         event.preventDefault();
+        // window.location.replace('/tracker');
     }
 
     render () {
@@ -149,7 +154,7 @@ class editEntry extends React.Component {
                         <div className='uploadLabel'>
                             <ControlLabel>Upload a photo here:</ControlLabel>
                         </div>
-                        <FilePond allowMultiple={false} server={"http://127.0.0.1:5000/uploadPhoto/" + this.state.name}/>
+                        <FilePond allowMultiple={false} server={baseFlaskUrl + "/uploadPhoto/" + this.state.name}/>
                         <br/><br/>
                         <FormGroup controlId="name" bsSize="large">
                             <ControlLabel></ControlLabel>

@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../components/layout'
-import {logoutButton} from "../utils";
+import {logoutButton, baseFlaskUrl} from "../utils";
 
 
 class DataAnalysis extends React.Component {
@@ -15,7 +15,7 @@ class DataAnalysis extends React.Component {
      * Opens a new window/tab with the backup data, ready for download
      */
     backupData(){
-        let url = 'http://127.0.0.1:5000/downloadBackupFile'
+        let url = baseFlaskUrl + '/downloadBackupFile'
         window.open(url)
     }
 
@@ -40,7 +40,7 @@ class DataAnalysis extends React.Component {
         if(this.state.file_data !== null) {
             let content = this.state.file_data.result;
 
-            let url = 'http://127.0.0.1:5000/restoreBackup'
+            let url = baseFlaskUrl + '/restoreBackup'
             fetch(url, {
                 method: "POST",
                 headers: {'Content-Type': 'application/json'},

@@ -1,11 +1,13 @@
 import React from "react";
 
+export const baseFlaskUrl = 'http://18.216.86.109'
+
 /**
  * For use with allowing multiple photos to be shown. TBD if it will work
  */
-export const imageFormatter = (photo_link) => {
-    return <img src={photo_link} height={125}/>
-}
+// export const imageFormatter = (photo_link) => {
+//     return <img src={photo_link} height={125}/>
+// }
 
 /**
  * Creates a logout button that calls logoutAndReset
@@ -28,7 +30,7 @@ export const logoutAndReset = () => {
  */
 export const formatPhotosWithHTMLTag = (response) => {
     for(let i = 0; i < response.length; i++){
-        response[i].photos = <img src={response[i].photos} height={125}/>
+        response[i].photos = <img src={response[i].photos} height={125} alt={"alcohol"}/>
     }
 }
 
@@ -54,7 +56,7 @@ export const parseNameFromURIString = (name) => {
  * Fetches all of the data from the database
  */
 export const getAllRequest = () => {
-    let url = 'http://127.0.0.1:5000/alcohol'
+    let url = baseFlaskUrl + '/alcohol'
     return fetch(url).then(response =>
         response.json()
             .then(json => {
@@ -75,7 +77,7 @@ export const getAllRequest = () => {
  * Fetches a single row from the database
  */
 export const getSingleRequest = (name) => {
-    let url = 'http://127.0.0.1:5000/alcohol/' + name
+    let url = baseFlaskUrl + '/alcohol/' + name
     return fetch(url).then(response =>
         response.json()
             .then(json => {

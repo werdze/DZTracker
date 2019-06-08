@@ -1,10 +1,10 @@
 import React from 'react'
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import Layout from '../components/layout'
-import {logoutButton} from "../utils";
+import {logoutButton, baseFlaskUrl} from "../utils";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { FilePond, File, registerPlugin } from 'react-filepond';
+import { registerPlugin } from 'react-filepond';
 import 'filepond/dist/filepond.min.css';
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css';
@@ -34,7 +34,7 @@ class newEntry extends React.Component {
      * Posts the data to the database (adds a new row in the table)
      */
     postRequest(){
-        let url = 'http://127.0.0.1:5000/addAlcohol'
+        let url = baseFlaskUrl + '/addAlcohol'
         fetch(url, {
             method: "POST",
             headers: {'Content-Type':'application/json'},
@@ -73,7 +73,7 @@ class newEntry extends React.Component {
     }
 
     /**
-     * Encrypts the password entered and sends login data to localStorage
+     * ...
      */
     onSubmit = event => {
         this.postRequest()
@@ -89,7 +89,7 @@ class newEntry extends React.Component {
                         {/*<ControlLabel>Upload a photo here:</ControlLabel>*/}
                     {/*</div>*/}
                     {/*<br/>*/}
-                    {/*<FilePond allowMultiple={true} server={"http://127.0.0.1:5000/uploadPhoto/" + this.state.name}>*/}
+                    {/*<FilePond allowMultiple={true} server={baseUrl + "/uploadPhoto/" + this.state.name}>*/}
                         {/*{console.log(this.state.name)}*/}
                     {/*</FilePond>*/}
                     <br/><br/>
