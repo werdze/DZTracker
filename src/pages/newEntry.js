@@ -39,7 +39,7 @@ class newEntry extends React.Component {
             method: "POST",
             headers: {'Content-Type':'application/json'},
             body: JSON.stringify({
-                photos: this.state.photos,
+                photos: "https://drew0.s3.us-east-2.amazonaws.com/defaultStella.png",
                 name: this.state.name,
                 company: this.state.company,
                 type: this.state.type,
@@ -52,8 +52,7 @@ class newEntry extends React.Component {
                 abv: this.state.abv,
             }),
             mode:"no-cors",
-        })
-        window.location.replace('/tracker')
+        }).then(() => window.location.replace('/tracker'))
     }
 
     /**

@@ -11,15 +11,12 @@ from flask_cors import CORS
 from src import config
 # import config
 
-from werkzeug.datastructures import FileStorage
-
 import boto3
 
 # default Flask port is 5000
 
 app = Flask(__name__)
 CORS(app)
-# cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = config.awsConfigInfo
 db = SQLAlchemy(app)

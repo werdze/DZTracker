@@ -86,7 +86,6 @@ class editEntry extends React.Component {
             }),
             // mode:"no-cors",
         }).then(() => window.location.replace('/tracker'))
-        // window.location.replace('/tracker')
     }
 
     /**
@@ -113,10 +112,6 @@ class editEntry extends React.Component {
             }),
             // mode:"no-cors",
         }).then(() => window.location.replace('/tracker'))
-
-        // window.location.replace('/tracker')
-        // window.navigate()
-        // window.location.href = 'http://localhost:8000/tracker';
     }
 
     /**
@@ -141,7 +136,6 @@ class editEntry extends React.Component {
     onSubmit = event => {
         this.putRequest();
         event.preventDefault();
-        // window.location.replace('/tracker');
     }
 
     render () {
